@@ -26,7 +26,7 @@
       <tr>
         <th scope="row">{{$key+1}}</th>
         <td>{{$category->name}}</td>
-        <td>{{$category->created_by}}</td>
+        <td>{{$category->user()->first()->name}}</td>
         <td scope="col">
             <div class="d-flex">
                 <a class="text-success mr-3" href="#" data-category="{{$category->id}}" data-toggle="modal"
