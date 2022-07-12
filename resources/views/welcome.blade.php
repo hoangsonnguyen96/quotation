@@ -240,77 +240,12 @@
     <!-- End Hero -->
 
     <main id="main">
-      <!-- ======= Services Section ======= -->
-      <section id="services" class="services">
-        <div class="container">
-          <div class="row">
-            <div
-              class="col-lg-4 col-md-6 d-flex align-items-stretch"
-              onclick="changeYoutube()"
-            >
-              <div class="icon-box">
-                <div class="icon"><i class="bx bxl-youtube"></i></div>
-                <h4><a href="#">YouTube</a></h4>
-                <p>
-                  MCV Network vlà đối tác MCN của YouTube với hơn 327 triệu lượt
-                  theo dõi
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0"
-              onclick="changeFacebook()"
-            >
-              <div class="icon-box">
-                <div class="icon"><i class="bx bxl-facebook"></i></div>
-                <h4><a href="#">Facebook</a></h4>
-                <p>
-                  DMCV là đối tác chiến lược của Facebook và là một trong số ít
-                  đối tác được lựa chọn áp dụng tính năng quảng cáo AdBreaks đầu
-                  tiên tại Việt Nam.
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0"
-              onclick="changeNetBiz()"
-            >
-              <div class="icon-box">
-                <div class="icon"><i class="bx bxl-netlify"></i></div>
-                <h4><a href="#">NetBiz</a></h4>
-                <p>
-                  NETBIZ cung cấp dịch vụ Marketing online và offline cho các
-                  doanh nghiệp SME bao gồm Internet Marketing và tổ chức sự kiện
-                  trong nhà, ngoài trời.
-                </p>
-              </div>
-            </div>
-
-            <!-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" onclick="changeFacebook()" >
-            <div class="icon-box">
-              <div class="icon"><i class='bx bxl-facebook'></i></div>
-              <h4><a href="#">Facebook</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" onclick="changeNetBiz()">
-            <div class="icon-box">
-              <div class="icon"><i class='bx bxl-netlify'></i></div>
-              <h4><a href="#">NetBiz</a></h4>
-              <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
-            </div>
-          </div> -->
-          </div>
-        </div>
-      </section>
+    <!-- ======= Services Section ======= -->
       <!-- End Services Section -->
 
       <section id="datables" class="datables">
         <div class="container">
-          <div class="col-12 d-flex">
+          <div class="col-12 d-flex"  style="z-index: 200 !important">
             <div class="col-2 me-2 menu-data">
               <div class="d-flex flex-column menu-s">
                 <div class="p-2">Flex item 1</div>
