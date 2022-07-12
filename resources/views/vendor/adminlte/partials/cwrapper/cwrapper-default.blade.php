@@ -21,6 +21,7 @@
     {{-- Main Content --}}
     <div class="content">
         <div class="{{ config('adminlte.classes_content') ?: $def_container_class }}">
+            @include('admin.components._alert')
             @yield('content')
         </div>
     </div>
