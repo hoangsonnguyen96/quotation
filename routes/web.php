@@ -19,4 +19,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::middleware(['auth'])->group(function () {
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['prefix'=>'categories'], function(){
+    Route::get('/index', [App\Http\Controllers\CategoriesController::class, 'index'])->name('categories.index');
+    Route::post('/store', [App\Http\Controllers\CategoriesController::class, 'store'])->name('categories.create');
+    Route::post('/update', [App\Http\Controllers\CategoriesController::class, 'update'])->name('categories.update');
+    Route::post('/destroy', [App\Http\Controllers\CategoriesController::class, 'destroy'])->name('categories.destroy');
+});
+
+Route::get('/upload', [App\Http\Controllers\HomeController::class, 'index'])->name('upload.index');
+
+});
