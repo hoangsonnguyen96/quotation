@@ -9324,6 +9324,7 @@ body {
     height: 656px;
     overflow: auto;
     border-radius: 10px;
+    z-index: 2;
   }
 
   .menu-data::-webkit-scrollbar{
