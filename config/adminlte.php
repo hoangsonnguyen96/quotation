@@ -253,8 +253,8 @@ return [
             'label_color' => 'success',
         ],
         [
-            'text'        => 'pages',
-            'route'         => 'upload.index',
+            'text'        => 'Credentials',
+            'route'         => 'credentials.index',
             'icon'        => 'far fa-fw fa-file',
             'label_color' => 'success',
         ],
@@ -428,6 +428,16 @@ return [
                     'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
                 ],
+            ],
+        ],
+        'customcss' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'css/custom.css',
+                ]
             ],
         ],
     ],

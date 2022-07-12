@@ -28,6 +28,15 @@ Route::group(['prefix'=>'categories'], function(){
     Route::post('/destroy', [App\Http\Controllers\CategoriesController::class, 'destroy'])->name('categories.destroy');
 });
 
+Route::group(['prefix'=>'credentials'], function(){
+    Route::get('/index', [App\Http\Controllers\CredentialsController::class, 'index'])->name('credentials.index');
+    Route::get('/create', [App\Http\Controllers\CredentialsController::class, 'create'])->name('credentials.create');
+    Route::post('/store', [App\Http\Controllers\CredentialsController::class, 'store'])->name('credentials.store');
+    Route::get('/edit/{id}', [App\Http\Controllers\CredentialsController::class, 'edit'])->name('credentials.edit');
+    Route::post('/update', [App\Http\Controllers\CredentialsController::class, 'update'])->name('credentials.update');
+    Route::post('/destroy', [App\Http\Controllers\CredentialsController::class, 'destroy'])->name('credentials.destroy');
+});
+
 Route::get('/upload', [App\Http\Controllers\HomeController::class, 'index'])->name('upload.index');
 
 });

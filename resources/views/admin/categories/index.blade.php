@@ -41,7 +41,9 @@
         </td>
       </tr>
       @empty
-
+      <tr>
+        <td colspan="4">No Data</td>
+      </tr>
       @endforelse
     </tbody>
   </table>

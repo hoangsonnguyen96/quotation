@@ -1,0 +1,21 @@
+
+.width-desc{
+    width: 500px;
+}
+
+.cut-text {
+    width: 475px;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.img-credentials{
+    width: 200px;
+    height: 100px;
+}
+
+.w-0{
+    width: 0px;
+}
