@@ -90,7 +90,7 @@ class CredentialsController extends Controller
     {
 
         $credential = Credentials::findOrFail($request->id);
-        $category = Categories::where('id',$credential->id)->first();
+        $category = Categories::where('id',$credential->category_id)->first();
         if($request->file('file')){
             $file= $request->file('file');
             $filename= date('YmdHi').$file->getClientOriginalName();

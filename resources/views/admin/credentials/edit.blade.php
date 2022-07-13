@@ -5,7 +5,6 @@
 @section('content_header')
 @include('admin.components.header', [
     'title' => 'Credentials',
-    'add' => 'Edit Credentials',
 ])
 @stop
 
@@ -39,11 +38,9 @@
               Please add Description.
             </div>
         </div>
+            <input type="submit" value="Edit" class="btn btn-primary">
     </div>
-</div>
-<div class="float-right">
-    <input type="submit" value="Edit" class="btn btn-primary" >
-</div>
+
 </form>
 <script>
     // Example starter JavaScript for disabling form submissions if there are invalid fields

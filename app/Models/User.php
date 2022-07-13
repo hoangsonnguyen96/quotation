@@ -50,4 +50,8 @@ class User extends Authenticatable
     public function credentials(){
         return $this->hasMany(Credentials::class);
     }
+
+    public function quotations(){
+        return $this->hasOne(Credentials::class);
+    }
 }

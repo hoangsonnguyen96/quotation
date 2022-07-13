@@ -37,6 +37,15 @@ Route::group(['prefix'=>'credentials'], function(){
     Route::post('/destroy', [App\Http\Controllers\CredentialsController::class, 'destroy'])->name('credentials.destroy');
 });
 
+Route::group(['prefix'=>'quotations'], function(){
+    Route::get('/index', [App\Http\Controllers\QuotationsController::class, 'index'])->name('quotations.index');
+    Route::get('/create', [App\Http\Controllers\QuotationsController::class, 'create'])->name('quotations.create');
+    Route::post('/store', [App\Http\Controllers\QuotationsController::class, 'store'])->name('quotations.store');
+    Route::get('/edit/{id}', [App\Http\Controllers\QuotationsController::class, 'edit'])->name('quotations.edit');
+    Route::post('/update', [App\Http\Controllers\QuotationsController::class, 'update'])->name('quotations.update');
+    Route::post('/destroy', [App\Http\Controllers\QuotationsController::class, 'destroy'])->name('quotations.destroy');
+});
+
 Route::get('/upload', [App\Http\Controllers\HomeController::class, 'index'])->name('upload.index');
 
 });

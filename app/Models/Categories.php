@@ -19,7 +19,11 @@ class Categories extends Model
     }
 
     public function credential(){
-        return $this->belongsTo(Credentials::class);
+        return $this->hasMany(Credentials::class,'category_id');
+    }
+
+    public function quotations(){
+        return $this->hasOne(Quotations::class,'category_id');
     }
 
 }
