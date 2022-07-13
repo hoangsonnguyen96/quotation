@@ -44,13 +44,21 @@ class CredentialsController extends Controller
      */
     public function store(StorecredentialsRequest $request)
     {
-        //
-       // dd($request->all());
-        if($request->file('file') && $request->file('file')){
-            $file= $request->file('file');
+        if($request->file('image') && $request->file('demo')){
+            $file= $request->file('image');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file->move('img/credentials', $filename);
-            Credentials::create(['images'=>$filename, 'description'=>$request->description, 'created_by'=> Auth::id()]);
+
+            $fileDemo = $request->file('demo');
+            $filenameDemo = date('YmdHi') . $fileDemo->getClientOriginalName();
+            $fileDemo->store('public/credentials');
+
+            Credentials::create(['images'=>$filename, 
+                                 'description'=>$request->description,
+                                 'title'=>$request->title,
+                                 'category_id'=>$request->category,
+                                 'file' => $filenameDemo,
+                                 'created_by'=> Auth::id()]);
             return back()->with('success', 'Add success!');
         }
     }
@@ -77,7 +85,8 @@ class CredentialsController extends Controller
         //
 
         $credential = Credentials::find($request->id);
-        return view('admin.credentials.edit',['credential' => $credential]);
+        $category = Categories::all();
+        return view('admin.credentials.edit',['credential' => $credential,'category'=> $category]);
     }
 
     /**
@@ -92,11 +101,20 @@ class CredentialsController extends Controller
 
         $credential = Credentials::findOrFail($request->id);
         $category = Categories::where('id',$credential->category_id)->first();
-        if($request->file('file')){
-            $file= $request->file('file');
+        if($request->file('image') && $request->file('demo')){
+            $file= $request->file('image');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file->move('img/credentials', $filename);
-            $credential->update(['images'=>$filename, 'description'=>$request->description, 'created_by'=> Auth::id(), 'category_id'=>$category->id]);
+
+            $fileDemo = $request->file('demo');
+            $filenameDemo = date('YmdHi') . $fileDemo->getClientOriginalName();
+            $fileDemo->store('public/credentials');
+            $credential->update(['images'=>$filename, 
+                                'description'=>$request->description,
+                                'title'=>$request->title,
+                                'category_id'=>$request->category,
+                                'file' => $filenameDemo,
+                                'created_by'=> Auth::id()]);
 
             return back()->with('success', 'Update success!');
         }
@@ -104,6 +122,24 @@ class CredentialsController extends Controller
             $credential->update(['images'=>$credential->images, 'description'=>$request->description, 'created_by'=> Auth::id(), 'category_id'=>$category->id]);
             return back()->with('success', 'Update success!');
         }
+
+        // if($request->file('image') && $request->file('demo')){
+        //     $file= $request->file('image');
+        //     $filename= date('YmdHi').$file->getClientOriginalName();
+        //     $file->move('img/credentials', $filename);
+
+        //     $fileDemo = $request->file('demo');
+        //     $filenameDemo = date('YmdHi') . $fileDemo->getClientOriginalName();
+        //     $fileDemo->store('public/credentials');
+
+        //     Credentials::create(['images'=>$filename, 
+        //                          'description'=>$request->description,
+        //                          'title'=>$request->title,
+        //                          'category_id'=>$request->category,
+        //                          'file' => $filenameDemo,
+        //                          'created_by'=> Auth::id()]);
+        //     return back()->with('success', 'Add success!');
+        // }
     }
 
     /**

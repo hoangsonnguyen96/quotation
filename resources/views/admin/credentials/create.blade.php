@@ -13,7 +13,7 @@
 <form action="{{route('credentials.store')}}" method="post" enctype="multipart/form-data" class="validation" novalidate>
     <div class="row mb-3">@csrf
         <div class="col">
-            <label for="">Name</label>
+            <label for="">Title</label>
             <input type="text" name="title" class="form-control" placeholder="Title" required>
         </div>
         <div class="col">
@@ -29,7 +29,7 @@
     <div class="row mb-3">
         <div class="col-12">
             <label for="">Description</label>
-            <textarea name="" id="" class="form-control" cols="30" rows="10" placeholder="Description" required></textarea>
+            <textarea name="description" id="" class="form-control" cols="30" rows="10" placeholder="Description" required></textarea>
         </div>
     </div>
     <div class="row mb-3">

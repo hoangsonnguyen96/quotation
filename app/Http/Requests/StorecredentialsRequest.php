@@ -25,7 +25,8 @@ class StorecredentialsRequest extends FormRequest
     {
         return [
             //
-            'file' => 'mimes:jpg,png',
+            'image' => 'mimes:jpg,png',
+            'demo' => 'mimes:pdf,xlsx',
         ];
     }
 }
