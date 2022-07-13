@@ -11,7 +11,9 @@ class credentials extends Model
 
     public $fillable = [
         'images',
+        'title',
         'description',
+        'file',
         'created_by',
         'category_id'
     ];

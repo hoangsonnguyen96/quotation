@@ -16,7 +16,9 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col" class="w-0">Images</th>
+        <th>Title</th>
         <th scope="col">Description</th>
+        <th scope="col">Category</th>
         <th scope="col">Created By</th>
         <th scope="col">Action</th>
       </tr>
@@ -26,7 +28,9 @@
       <tr>
         <th scope="row">{{$key+1}}</th>
         <td><img class="img-credentials" src="{{asset('img/credentials')}}/{{$credential->images}}" alt=""></td>
+        <td>Title</td>
         <td class="width-desc"><p class="cut-text">{{$credential->description}}</p></td>
+        <td>{{$credential->category()->first()->name}}</td>
         <td>{{$credential->user()->first()->name}}</td>
         <td scope="col">
             <div class="d-flex">

@@ -32,7 +32,8 @@ class CredentialsController extends Controller
     public function create()
     {
         //
-        return view('admin.credentials.create');
+        $category = Categories::all();
+        return view('admin.credentials.create',['category'=> $category]);
     }
 
     /**
@@ -45,7 +46,7 @@ class CredentialsController extends Controller
     {
         //
        // dd($request->all());
-        if($request->file('file')){
+        if($request->file('file') && $request->file('file')){
             $file= $request->file('file');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file->move('img/credentials', $filename);

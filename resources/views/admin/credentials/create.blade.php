@@ -11,28 +11,41 @@
 
 @section('content')
 <form action="{{route('credentials.store')}}" method="post" enctype="multipart/form-data" class="validation" novalidate>
-    <div class="col-12">@csrf
-        <div class="form-group">
-            <label for="">Images</label>
-            <input type="file" name="file" id="file" class="form-control" onchange="readURL(this)" required>
-            <div class="invalid-feedback">
-              Please add File.
-            </div>
+    <div class="row mb-3">@csrf
+        <div class="col">
+            <label for="">Name</label>
+            <input type="text" name="title" class="form-control" placeholder="Title" required>
+        </div>
+        <div class="col">
+            <label for="">Category</label>
+            <select name="category" id="category" class="form-control" required>
+                @foreach ($category as $cate)
+                    <option value="{{$cate->id}}">{{$cate->name}}</option>
+                @endforeach
+
+            </select>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <label for="">Description</label>
+            <textarea name="" id="" class="form-control" cols="30" rows="10" placeholder="Description" required></textarea>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
+            <label for="">Image</label>
+            <input type="file" name="image" id="image" class="form-control mb-3" onchange="readURL(this)" required>
             <img id="img-credentials" src="#"/>
         </div>
-    </div>
-    <div class="col-12">
-        <div class="form-group">
-            <label for="">Description</label>
-            <textarea name="description" id="description" class="form-control" cols="30" rows="10" required></textarea>
-            <div class="invalid-feedback">
-              Please add Description.
-            </div>
+        <div class="col">
+            <label for="">Demo</label>
+            <input type="file" name="demo" class="form-control" required>
         </div>
     </div>
-</div>
-<div class="float-right">
-    <input type="submit" value="Add" class="btn btn-primary" >
+    <div class="float-right">
+        <input type="submit" value="Add" class="btn btn-primary">
+    </div>
 </div>
 </form>
 <script>
