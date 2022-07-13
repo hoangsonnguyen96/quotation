@@ -15,30 +15,24 @@
     <thead>
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">Services</th>
-        <th scope="col">Unit</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Unit Price</th>
-        <th scope="col">Total</th>
-        {{-- <th scope="col">Category</th>
-        <th scope="col">Created By</th> --}}
+        <th scope="col">Name</th>
+        <th scope="col">File</th>
+        <th scope="col">Category</th>
+        <th scope="col">Created by</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
-        @forelse($quotations as $key=>$quotation)
+        @forelse($listQuotation as $key=>$quotation)
       <tr>
         <th scope="row">{{$key+1}}</th>
-        <td>{{$quotation->services}}</td>
-        <td>{{$quotation->unit}}</td>
-        <td>{{$quotation->quantity}}</td>
-        <td>{{$quotation->unit_price}}</td>
-        <td>{{$quotation->total}}</td>
-        {{-- <td>{{$quotation->categories()->first()->name}}</td>
-        <td>{{$quotation->user()->first()->name}}</td> --}}
+        <td>{{$quotation->name}}</td>
+        <td>{{$quotation->file}}</td>
+        <td>{{$quotation->category()->first()->name}}</td>
+        <td>{{$quotation->user()->first()->name}}</td>
         <td scope="col">
             <div class="d-flex">
-                <a class="text-success mr-3" href="{{route('quotations.edit',['id'=>$quotation->id])}}">
+                <a class="text-success mr-3" href="{{route('listQuotations.edit',['id'=>$quotation->id])}}">
                     <i class="fas fa-edit"></i>
                 </a>
                 <a class="text-danger" href="#" data-quotation="{{$quotation->id}}" data-toggle="modal" data-target="#destroyQuotation">
@@ -54,7 +48,7 @@
       @endforelse
     </tbody>
   </table>
-  @include('admin.quotations.components._modal_destroyQuotation')
+  @include('admin.listquotation.components._modal_destroyListQuotation')
 @stop
 @section('js')
     <script>

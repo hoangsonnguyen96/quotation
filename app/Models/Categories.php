@@ -25,5 +25,9 @@ class Categories extends Model
     public function quotations(){
         return $this->hasOne(Quotations::class,'category_id');
     }
+    
+    public function listQuotations(){
+        return $this->hasOne(ListQuotation::class,'category_id');
+    }
 
 }
