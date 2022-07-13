@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\credentials;
+use App\Models\Categories;
 use App\Http\Requests\StorecredentialsRequest;
 use App\Http\Requests\UpdatecredentialsRequest;
 use App\Policies\CredentialsPolicy;
@@ -73,7 +74,7 @@ class CredentialsController extends Controller
     public function edit(Request $request)
     {
         //
-        
+
         $credential = Credentials::find($request->id);
         return view('admin.credentials.edit',['credential' => $credential]);
     }
@@ -87,15 +88,20 @@ class CredentialsController extends Controller
      */
     public function update(UpdatecredentialsRequest $request, credentials $credentials)
     {
-        //
-        dd($request->all());
-        $credential = Credentials::find($request->id);
+
+        $credential = Credentials::findOrFail($request->id);
+        $category = Categories::where('id',$credential->id)->first();
         if($request->file('file')){
             $file= $request->file('file');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file->move('img/credentials', $filename);
-            Credentials::create(['images'=>$filename, 'description'=>$request->description, 'created_by'=> Auth::id()]);
-            return back()->with('success', 'Add success!');
+            $credential->update(['images'=>$filename, 'description'=>$request->description, 'created_by'=> Auth::id(), 'category_id'=>$category->id]);
+
+            return back()->with('success', 'Update success!');
+        }
+        else{
+            $credential->update(['images'=>$credential->images, 'description'=>$request->description, 'created_by'=> Auth::id(), 'category_id'=>$category->id]);
+            return back()->with('success', 'Update success!');
         }
     }
 
@@ -105,8 +111,11 @@ class CredentialsController extends Controller
      * @param  \App\Models\credentials  $credentials
      * @return \Illuminate\Http\Response
      */
-    public function destroy(credentials $credentials)
+    public function destroy(Request $request)
     {
         //
+        $credential = Credentials::findOrFail($request->id);
+        $credential->delete();
+        return back()->with('success', 'Delete success!');
     }
 }

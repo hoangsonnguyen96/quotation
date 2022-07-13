@@ -4,7 +4,7 @@
 
 @section('content_header')
 @include('admin.components.header', [
-    'title' => 'Cedentials',
+    'title' => 'Credentials',
     'add' => 'Edit Credentials',
 ])
 @stop
@@ -15,11 +15,20 @@
       <input type="hidden" name="id" id="id" value="{{$credential->id}}" />
         <div class="form-group">
             <label for="">Images</label>
-            <input type="file" name="file" id="file" class="form-control" onchange="readURL(this)" required>
+            <input type="file" name="file" id="file" class="form-control" onchange="readURL(this)">
             <div class="invalid-feedback">
               Please add File.
             </div>
-            <img id="img-credentials" src="#"/>
+            <div class="row mt-2">
+                <div class="col">
+                    <label for="">Old</label>
+                    <img class="img-credentials" src="{{asset('img/credentials')}}/{{$credential->images}}" alt="">
+                </div>
+                <div class="col">
+                    <label for="">New</label>
+                    <img  class="img-credentials" id="img-credentials" src="#"/>
+                </div>
+              </div>
         </div>
     </div>
     <div class="col-12">
@@ -33,7 +42,7 @@
     </div>
 </div>
 <div class="float-right">
-    <input type="submit" value="Add" class="btn btn-primary" >
+    <input type="submit" value="Edit" class="btn btn-primary" >
 </div>
 </form>
 <script>

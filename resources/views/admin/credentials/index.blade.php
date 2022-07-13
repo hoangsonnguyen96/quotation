@@ -4,7 +4,7 @@
 
 @section('content_header')
 @include('admin.components.header', [
-    'title' => 'Cedentials',
+    'title' => 'Credentials',
     'add' => 'Add Credentials',
     'url' => route('credentials.create'),
 ])
@@ -33,7 +33,7 @@
                 <a class="text-success mr-3" href="{{route('credentials.edit',['id'=>$credential->id])}}">
                     <i class="fas fa-edit"></i>
                 </a>
-                <a class="text-danger" href="#">
+                <a class="text-danger" href="#" data-credential="{{$credential->id}}" data-toggle="modal" data-target="#destroyCredential">
                     <i class="fas fa-minus"></i>
                 </a>
             </div>
@@ -41,9 +41,20 @@
       </tr>
       @empty
       <tr>
-        <td colspan="4">No Data</td>
+        <td colspan="5">No Data</td>
       </tr>
       @endforelse
     </tbody>
   </table>
+  @include('admin.credentials.components._modal_destroyCredential')
 @stop
+@section('js')
+    <script>
+        $('#destroyCredential').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var data = button.data('credential')
+            var modal = $(this)
+            modal.find('#credential-id').val(data)
+        })
+    </script>
+@endsection

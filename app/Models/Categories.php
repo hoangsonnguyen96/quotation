@@ -13,8 +13,13 @@ class Categories extends Model
         'name',
         'created_by'
     ];
-    
+
     public function user(){
         return $this->belongsTo(User::class,'created_by');
     }
+
+    public function credential(){
+        return $this->belongsTo(Credentials::class);
+    }
+
 }
