@@ -25,7 +25,7 @@
     <link href="{{ asset('vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Template Main CSS File -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
 
@@ -48,7 +48,7 @@
     <script src="{{ asset('vendor/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('vendor/waypoints/noframework.waypoints.js') }}"></script>
     <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Template Main JS File -->
     <script src="{{ asset('js/main.js') }}"></script>
     <script>
@@ -71,6 +71,8 @@
         function changeNetBiz() {
             $(".datables").load("netbiz.html");
         }
+        $( "table" ).addClass( "styled-table" );
+
     </script>
 </body>
 

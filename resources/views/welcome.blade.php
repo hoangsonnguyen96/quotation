@@ -5,7 +5,7 @@
       <div class="container d-flex justify-content-center justify-content-md-between">
           <div class="contact-info d-flex align-items-center">
               <i class="bi bi-envelope d-flex align-items-center"><a
-                      href="mailto:contact@example.com">cinfo@mcv.com.vn</a></i>
+                      href="mailto:contact@example.com">info@mcv.com.vn</a></i>
               <i class="bi bi-phone d-flex align-items-center ms-4"><span>+84 28 3910 5142</span></i>
           </div>
           <div class="social-links d-none d-md-flex align-items-center">
@@ -99,48 +99,33 @@
       <!-- ======= Services Section ======= -->
       <!-- End Services Section -->
 
-      <section id="datables" class="datables">
+      <section id="datables" class="datables" style="margin-top:150px">
           <div class="container">
               <div class="col-12 d-flex" style="z-index: 200 !important">
                   <div class="col-2 me-2 menu-data">
                       <div class="d-flex flex-column menu-s">
                         @foreach ($categories as $category)
-                          <div class="p-2"><a style="color: white" href="">{{$category->name}}</a></div>
+                        <span>{{ $category->name }}</span>
+                        <ul>
+
+                            @foreach ($category->credential as $item)
+                                <li>
+                                    {{ $item->title }}
+                                </li>
+                            @endforeach
+                            @foreach ($category->listQuotations as $item)
+                                <li>
+                                    {{ $item->name }}
+                                </li>
+                            @endforeach
+                        </ul>
                         @endforeach
-                          
-                          
+
+
                       </div>
                   </div>
                   <div class="col-10">
                       <div id="services" class="services">
-                          <div class="container">
-                              <div class="row">
-                                  <div class="col-lg-3 col-md-6 m-b-5">
-                                      <div class="icon-box">
-                                          <div class="icon"><i class="bx bx-world"></i></div>
-                                          <h4><a href="">Nemo Enim</a></h4>
-                                      </div>
-                                  </div>
-                                  <div class="col-lg-3 col-md-6 m-b-5">
-                                      <div class="icon-box">
-                                          <div class="icon"><i class="bx bx-slideshow"></i></div>
-                                          <h4><a href="">Dele cardo</a></h4>
-                                      </div>
-                                  </div>
-                                  <div class="col-lg-3 col-md-6 m-b-5">
-                                      <div class="icon-box">
-                                          <div class="icon"><i class="bx bx-arch"></i></div>
-                                          <h4><a href="">Divera don</a></h4>
-                                      </div>
-                                  </div>
-                                  <div class="col-lg-3 col-md-6 m-b-5">
-                                      <div class="icon-box">
-                                          <div class="icon"><i class="bx bx-arch"></i></div>
-                                          <h4><a href="">Divera don</a></h4>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
                           <div id="about" class="about mt-3">
                               <div class="container">
                                   <div class="row">
