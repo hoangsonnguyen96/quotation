@@ -41,49 +41,6 @@
         </div>
     </form>
 
-    <table class="table table-bordered data-table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Services</th>
-                <th>Unit</th>
-                <th>Quantity</th>
-                <th>Unit Price</th>
-                <th>Total</th>
-                <th>Demo</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($quotation as $key=>$data)
-                <tr>
-                    <td>{{ $key+1 }}</td>
-                    <td>
-                        <a href="" class="update" data-name="services" data-type="text" data-pk="{{ $data->id }}" data-title="Enter name">{{ $data->services }}</a>
-                    </td>
-                    <td>
-                        <a href="" class="update" data-name="unit" data-type="text" data-pk="{{ $data->id }}" data-title="Enter name">{{ $data->unit }}</a>
-                    </td>
-                    <td>
-                        <a href="" class="update" data-name="quantity" data-type="text" data-pk="{{ $data->id }}" data-title="Enter name">{{ $data->quantity }}</a>
-                    </td>
-                    <td>
-                        <a href="" class="update" data-name="unit_price" data-type="text" data-pk="{{ $data->id }}" data-title="Enter name">{{ $data->unit_price }}</a>
-                    </td>
-                    <td>
-                        <a href="" class="update" data-name="total" data-type="text" data-pk="{{ $data->id }}" data-title="Enter name">{{ $data->total }}</a>
-                    </td>
-                    <td>
-                        <a href="" class="update" data-name="demo" data-type="text" data-pk="{{ $data->id }}" data-title="Enter name">{{ $data->demo }}</a>
-                    </td>
-                </tr>
-                </tr>
-                </tr>
-                </tr>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-
 </body>
 @stop
 @section('js')

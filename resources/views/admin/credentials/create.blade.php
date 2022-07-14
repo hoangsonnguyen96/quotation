@@ -4,7 +4,7 @@
 
 @section('content_header')
 @include('admin.components.header', [
-    'title' => 'Cedentials',
+    'title' => 'Credentials',
     'add' => 'Create Credentials',
 ])
 @stop

@@ -27,8 +27,8 @@
         @forelse($credentials as $key=>$credential)
       <tr>
         <th scope="row">{{$key+1}}</th>
-        <td><img class="img-credentials" src="{{asset('img/credentials')}}/{{$credential->images}}" alt=""></td>
-        <td>Title</td>
+        <td><img class="img-credentials" src="{{asset('img/credentials')}}/{{$credential?->images}}" alt=""></td>
+        <td>{{$credential->title}}</td>
         <td class="width-desc"><p class="cut-text">{{$credential->description}}</p></td>
         <td>{{$credential->category()->first()->name}}</td>
         <td>{{$credential->user()->first()->name}}</td>
@@ -45,7 +45,7 @@
       </tr>
       @empty
       <tr>
-        <td colspan="5">No Data</td>
+        <td colspan="7" class="text-center">No Data</td>
       </tr>
       @endforelse
     </tbody>

@@ -48,6 +48,7 @@ class ListQuotationController extends Controller
         if ($request->file('file')) {
             $file = $request->file('file');
             $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->store('public/quotation');
             ListQuotation::create([
                 'name' => $request->name,
                 'file' => $filename,
