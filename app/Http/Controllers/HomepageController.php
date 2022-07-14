@@ -11,8 +11,9 @@ class HomepageController extends Controller
     //
     public function index()
     {
+        $credential = Credentials::first();
         $categories = Categories::with(['credential','listQuotations'])->get();
-        return view('welcome', ['categories' => $categories]);
+        return view('welcome', ['categories' => $categories, 'credential' => $credential]);
     }
 
     public function category(Request $request){
@@ -27,5 +28,19 @@ class HomepageController extends Controller
                                           'credentials' => $credentials,
                                           'listQuotation' => $listQuotation,]);
 
+    }
+
+    public function credentials(Request $request){
+        
+        $credential = Credentials::where('id',$request->id)->first();
+        $categories = Categories::all();
+        return view('frontend.credentials', ['categories' => $categories, 'credential' =>$credential]);
+    }
+
+    public function quotations(Request $request){
+    
+        $quotation = ListQuotation::where('id',$request->id)->first();
+        $categories = Categories::all();
+        return view('frontend.quotations', ['categories' => $categories, 'quotation' =>$quotation]);
     }
 }
