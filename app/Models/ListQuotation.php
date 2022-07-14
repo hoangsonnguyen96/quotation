@@ -13,6 +13,8 @@ class ListQuotation extends Model
         'name',
         'file',
         'category_id',
+        'created_by',
+        'description'
     ];
 
     public function category()
