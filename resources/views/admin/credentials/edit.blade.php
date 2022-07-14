@@ -5,7 +5,6 @@
 @section('content_header')
 @include('admin.components.header', [
     'title' => 'Credentials',
-    'add' => 'Create Credentials',
 ])
 @stop
 
@@ -30,7 +29,7 @@
     <div class="row mb-3">
         <div class="col-12">
             <label for="">Description</label>
-            <textarea name="description" id="" class="form-control" cols="30" rows="10" placeholder="Description" required>{{$credential->description}}</textarea>
+            <textarea name="description" id="" class="form-control ckeditor" cols="30" rows="10" placeholder="Description" required>{{$credential->description}}</textarea>
         </div>
     </div>
     <div class="row mb-3">

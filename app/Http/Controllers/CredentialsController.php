@@ -53,7 +53,7 @@ class CredentialsController extends Controller
             $filenameDemo = date('YmdHi') . $fileDemo->getClientOriginalName();
             $fileDemo->store('public/credentials');
 
-            Credentials::create(['images'=>$filename, 
+            Credentials::create(['images'=>$filename,
                                  'description'=>$request->description,
                                  'title'=>$request->title,
                                  'category_id'=>$request->category,
@@ -109,7 +109,7 @@ class CredentialsController extends Controller
             $fileDemo = $request->file('demo');
             $filenameDemo = date('YmdHi') . $fileDemo->getClientOriginalName();
             $fileDemo->store('public/credentials');
-            $credential->update(['images'=>$filename, 
+            $credential->update(['images'=>$filename,
                                 'description'=>$request->description,
                                 'title'=>$request->title,
                                 'category_id'=>$request->category,
@@ -119,7 +119,12 @@ class CredentialsController extends Controller
             return back()->with('success', 'Update success!');
         }
         else{
-            $credential->update(['images'=>$credential->images, 'description'=>$request->description, 'created_by'=> Auth::id(), 'category_id'=>$category->id]);
+            $credential->update(['images'=>$credential->images,
+                                'description'=>$request->description,
+                                'title'=>$request->title,
+                                'category_id'=>$request->category,
+                                'file' => $credential->file,
+                                'created_by'=> Auth::id()]);
             return back()->with('success', 'Update success!');
         }
 
@@ -132,7 +137,7 @@ class CredentialsController extends Controller
         //     $filenameDemo = date('YmdHi') . $fileDemo->getClientOriginalName();
         //     $fileDemo->store('public/credentials');
 
-        //     Credentials::create(['images'=>$filename, 
+        //     Credentials::create(['images'=>$filename,
         //                          'description'=>$request->description,
         //                          'title'=>$request->title,
         //                          'category_id'=>$request->category,
