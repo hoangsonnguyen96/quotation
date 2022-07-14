@@ -32,6 +32,8 @@ class ListQuotationController extends Controller
     public function create()
     {
         //
+        $categories = Categories::all();
+        return view('admin.listquotation.create',['categories'=>$categories,]);
     }
 
     /**
@@ -43,6 +45,17 @@ class ListQuotationController extends Controller
     public function store(StoreListQuotationRequest $request)
     {
         //
+        if ($request->file('file')) {
+            $file = $request->file('file');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            ListQuotation::create([
+                'name' => $request->name,
+                'file' => $filename,
+                'description' => $request->desc,
+                'category_id' => $request->category,
+                'created_by' => Auth::id()]);
+            return back()->with('success', 'Add success!');
+        }
     }
 
     /**
@@ -80,17 +93,17 @@ class ListQuotationController extends Controller
      */
     public function update(UpdateListQuotationRequest $request, ListQuotation $listQuotation)
     {
-        
+
 
         if ($request->ajax()) {
             Quotations::find($request->pk)
                 ->update([
                     $request->name => $request->value
                 ]);
-  
+
             return response()->json(['success' => true]);
         }
-        if ($request->file('file')) {            
+        if ($request->file('file')) {
             $quotation = ListQuotation::findOrFail($request->id);
             $category = Categories::where('id', $quotation->category_id)->first();
             $file = $request->file('file');
@@ -100,6 +113,7 @@ class ListQuotationController extends Controller
                 'name' => $request->name,
                 'total' => $request->total,
                 'file' => $filename,
+                'description' => $request->desc,
                 'category_id' => $request->category,
                 'created_by' => Auth::id()
             ]);
@@ -111,6 +125,7 @@ class ListQuotationController extends Controller
                 'name' => $request->name,
                 'total' => $request->total,
                 'file' => $quotation->file,
+                'description' => $request->desc,
                 'category_id' => $request->category,
                 'created_by' => Auth::id()
             ]);

@@ -4,46 +4,39 @@
 
 @section('content_header')
     @include('admin.components.header', [
-        'title' => 'Quotations',
+        'title' => 'List Quotations',
     ])
 @stop
 
 @section('content')
-    <form action="{{ route('quotations.store') }}" enctype="multipart/form-data" method="post" class="validation" novalidate>
-        <div class="row mb-3">@csrf
-            <div class="col">
-                <label for="">Service</label>
-                <input type="text" name="service" class="form-control" placeholder="Service" required>
-            </div>
-            <div class="col">
-                <label for="">Unit</label>
-                <input type="text" name="unit" class="form-control" placeholder="Unit" required>
-            </div>
+<form action="{{ route('listQuotations.store') }}" enctype="multipart/form-data" method="post" class="validation" novalidate>
+    <div class="row mb-3">@csrf
+        <input type="hidden" name="id" id="id">
+        <div class="col">
+            <label for="">Name</label>
+            <input type="text" name="name" class="form-control" placeholder="Name"required>
         </div>
-        <div class="row mb-3">
-            <div class="col">
-                <label for="">Quantity</label>
-                <input type="text" name="quantity" id="quantity" class="form-control" placeholder="Quantity" required>
-            </div>
-            <div class="col">
-                <label for="">Unit Price</label>
-                <input type="text" name="unit_price" id="unit_price" class="form-control" placeholder="Unit Price" required>
-            </div>
+        <div class="col">
+            <label for="">File</label>
+            <input type="file" name="file" class="form-control" required>
         </div>
-        <div class="row mb-3">
-            <div class="col">
-                <label for="">Total</label>
-                <input type="text" name="total" id="total" class="form-control mb-3" placeholder="Total" readonly required>
-            </div>
-            <div class="col">
-                <label for="">File Demo</label>
-                <input type="file" name="demo" class="form-control" required>
-            </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
+            <select name="category" id="" class="form-control">
+                @foreach($categories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+            </select>
         </div>
-        <div class="float-right">
-            <input type="submit" value="Add" class="btn btn-primary">
-        </div>
-    </form>
+    </div>
+    <div class="form-group">
+        <textarea class="ckeditor" name="desc" id="" cols="30" rows="10" required></textarea>
+    </div>
+    <div class="float-right mb-3">
+        <input type="submit" value="Add" class="btn btn-primary">
+    </div>
+</form>
 @stop
 @section('js')
     <script>

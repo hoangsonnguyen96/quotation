@@ -6,12 +6,12 @@
 
 @section('content_header')
     @include('admin.components.header', [
-        'title' => 'Quotations',
+        'title' => 'List Quotations',
     ])
 @stop
 
 @section('content')
-      
+
     <form action="{{ route('listQuotations.update') }}" enctype="multipart/form-data" method="post" class="validation" novalidate>
         <div class="row mb-3">@csrf
             <input type="hidden" name="id" id="id" value="{{$list->id}}" />
@@ -21,7 +21,7 @@
             </div>
             <div class="col">
                 <label for="">File</label>
-                <input type="file" name="file" class="form-control" value="{{$list->category()->first()->name}}" placeholder="">
+                <input type="file" name="file" class="form-control">
             </div>
         </div>
         <div class="row mb-3">
@@ -33,11 +33,14 @@
                 </select>
             </div>
         </div>
+        <div class="form-group">
+            <textarea class="ckeditor" name="desc" id="" cols="30" rows="10" required>{{$list->description}}</textarea>
+        </div>
         <div class="float-right mb-3">
             <input type="submit" value="Edit" class="btn btn-primary">
         </div>
     </form>
-    
+
     <table class="table table-bordered data-table">
         <thead>
             <tr>
@@ -80,7 +83,7 @@
             @endforeach
         </tbody>
     </table>
-     
+
 </body>
 @stop
 @section('js')
@@ -111,16 +114,16 @@
         })
 
     </script>
-    
+
 <script type="text/javascript">
     $.fn.editable.defaults.mode = 'inline';
-  
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': '{{csrf_token()}}'
         }
-    }); 
-  
+    });
+
     $('.update').editable({
            url: "{{ route('listQuotations.update') }}",
            type: 'text',

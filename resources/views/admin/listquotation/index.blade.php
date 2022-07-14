@@ -4,9 +4,9 @@
 
 @section('content_header')
 @include('admin.components.header', [
-    'title' => 'Quotations',
-    'add' => 'Add Quotations',
-    'url' => route('quotations.create'),
+    'title' => 'List Quotations',
+    'add' => 'Add List Quotations',
+    'url' => route('listQuotations.create'),
 ])
 @stop
 
