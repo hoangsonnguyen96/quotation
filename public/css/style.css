@@ -9369,6 +9369,14 @@ section {
     z-index: 2;
 }
 
+.more{
+    outline: 1px solid #8e010b;
+    background: #fff;
+    color: #8e010b;
+    height: 30px;
+    line-height: 100%;
+    border-radius: 20px;
+}
 
 .more:hover {
     background: #8e010b;
@@ -9399,14 +9407,13 @@ section {
 }
 .styled-table {
     border-collapse: collapse;
-    margin: 25px 0;
     font-size:14px;
     font-family: sans-serif;
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 .styled-table thead tr {
-    background-color: #009879;
+    background-color: #8e010b;
     color: #ffffff;
     text-align: left;
 }
@@ -9421,11 +9428,11 @@ section {
     background-color: #f3f3f3;
 }
 .styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+    border-bottom: 2px solid #8e010b;
 }
 .styled-table tbody tr.active-row {
     font-weight: bold;
-    color: #009879;
+    color: #8e010b;
 }
 .text-color:hover{
     background: #770808;
@@ -9497,3 +9504,66 @@ section {
 .dropdown a:hover {background-color: #993;}
 
 .show {display: block;}
+ul,ol{list-style: none;}
+a{text-decoration: none;}
+.sidebar-left {
+    background-color: #8e010b;
+    border-radius: 5px;
+    color: white;
+}
+.sidebar-left .title-sidebar {
+    color: #333;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: bold;
+    margin: 0 0 15px;
+}
+.sidebar-left .sidebar-menu{
+    list-style: none;
+}
+.sidebar-left .sidebar-menu li{
+    display: block;
+}
+.sidebar-left .sidebar-menu li a{
+    display: block;
+    font-size: 16px;
+    line-height: 1.2;
+    text-decoration: none;
+    padding: 5px 0;
+    position: relative;
+    color: #fff;
+}
+.sidebar-left .sidebar-menu li a:hover{
+    color: #e6573f;
+}
+.sidebar-left .sidebar-menu li ul{
+    padding-left: 20px;
+    list-style: none;
+}
+.sidebar-left .sidebar-menu li ul{
+    padding-left: 20px;
+    list-style: none;
+    display: none;
+}
+.sidebar-left .sidebar-menu li.has-child .icon {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 4px;
+    width: 20px;
+    height: 20px;
+    background: url("/img/arrow.png") center center no-repeat;
+    background-size: 14px;
+    transition: all 0.3s ease-in-out;
+}
+.sidebar-left .sidebar-menu li.has-child.menu-open > a .icon{
+    transform: rotate(180deg); /* Khi có class .menu-open thì xoay icon 180 độ */
+}
+.sidebar-left .sidebar-menu li.has-child.menu-open > ul{
+    display: block; /* Khi có class .menu-open thì menu con kế tiếp hiển thị */
+}
+
+.img-credentials{
+    width: 100%;
+    height: 100%;
+}

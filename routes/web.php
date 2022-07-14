@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\HomepageController::class, 'index'])->name('homepage');
 Route::get('/category/{id}', [App\Http\Controllers\HomepageController::class, 'category'])->name('category.index');
+Route::get('/credential/{id}', [App\Http\Controllers\HomepageController::class, 'credentials'])->name('frontend.credentials.index');
+Route::get('/quotation/{id}', [App\Http\Controllers\HomepageController::class, 'quotations'])->name('frontend.quotations.index');
 
 Auth::routes();
 

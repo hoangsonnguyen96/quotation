@@ -258,5 +258,8 @@
       clickable: true
     }
   });
-
+  $('.sidebar-menu li.has-child > a .icon').click(function(e){
+    e.preventDefault();
+    $(this).parent().parent().toggleClass('menu-open');
+});
 })()
