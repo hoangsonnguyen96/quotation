@@ -8,7 +8,7 @@ use App\Http\Requests\UpdateQuotationsRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Categories;
-
+use App\Models\ListQuotation;
 class QuotationsController extends Controller
 {
     /**
@@ -31,7 +31,9 @@ class QuotationsController extends Controller
     public function create()
     {
         //
-        return view('admin.quotations.create');
+
+        $listQuotations = ListQuotation::all();
+        return view('admin.quotations.create',['listQuotations'=>$listQuotations]);
     }
 
     /**
@@ -81,9 +83,9 @@ class QuotationsController extends Controller
     public function edit(Request $request)
     {
         //
-
+        $listQuotations = ListQuotation::all();
         $quotation = Quotations::find($request->id);
-        return view('admin.quotations.edit', ['quotation' => $quotation]);
+        return view('admin.quotations.edit', ['quotation' => $quotation, 'listQuotations' => $listQuotations]);
     }
 
     /**

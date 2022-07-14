@@ -31,14 +31,24 @@
                 <input type="text" name="unit_price" id="unit_price" class="form-control" value="{{$quotation->unit_price}}" placeholder="Unit Price" required>
             </div>
         </div>
-        <div class="row mb-3">
+        <div class="row">
             <div class="col">
                 <label for="">Total</label>
                 <input type="text" name="total" id="total" class="form-control mb-3"  value="{{$quotation->total}}" placeholder="Total" readonly required>
             </div>
             <div class="col">
-                <label for="">File Demo</label>
-                <input type="file" name="demo" class="form-control" required>
+                <label for="">List</label>
+                <select name="list" id="list" class="form-control">
+                    @foreach($listQuotations as $list)
+                        <option value="{{$list->id}}">{{$list->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12">
+                <label for="">Link Demo</label>
+                <input type="text" name="link" class="form-control" required>
             </div>
         </div>
         <div class="float-right">
