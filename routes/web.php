@@ -21,9 +21,9 @@ Route::get('/quotation/{id}', [App\Http\Controllers\HomepageController::class, '
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
-
+    Route::get('/editor', [App\Http\Controllers\CKEditorController::class, 'index']);
+    Route::post('/editor/image_upload', [App\Http\Controllers\CKEditorController::class, 'upload'])->name('ck.upload');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 Route::group(['prefix'=>'categories'], function(){
     Route::get('/index', [App\Http\Controllers\CategoriesController::class, 'index'])->name('categories.index');
     Route::post('/store', [App\Http\Controllers\CategoriesController::class, 'store'])->name('categories.create');

@@ -88,18 +88,12 @@
         {{-- Configured Scripts --}}
         {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> --}}
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
-        <script type="text/javascript">
+        <script src="{{ asset('ckeditor/ckeditor.js')}}"></script>
+        {{-- <script type="text/javascript">
             $(window).on('load', function (){
                 $('.ckeditor').ckeditor();
             });
-        </script>
-        <script type="text/javascript">
-            CKEDITOR.replace('wysiwyg-editor', {
-                filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
-                filebrowserUploadMethod: 'form'
-            });
-        </script>
+        </script> --}}
         @include('adminlte::plugins', ['type' => 'js'])
 
         <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>

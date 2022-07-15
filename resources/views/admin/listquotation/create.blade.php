@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class="form-group">
-        <textarea class="ckeditor" name="desc" id="" cols="30" rows="10" required></textarea>
+        <textarea class="form-control" name="desc" id="" cols="30" rows="10" required></textarea>
     </div>
     <div class="float-right mb-3">
         <input type="submit" value="Add" class="btn btn-primary">
@@ -62,4 +62,11 @@
         })
 
     </script>
+<script>
+
+    CKEDITOR.replace('desc', {
+        filebrowserUploadUrl: "{{route('ck.upload', ['_token' => csrf_token() ])}}",
+        filebrowserUploadMethod: 'form'
+    });
+</script>
 @endsection

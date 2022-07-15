@@ -48,7 +48,7 @@ class QuotationsController extends Controller
             // dd($request->all());
             $file = $request->file('demo');
             $filename = date('YmdHi') . $file->getClientOriginalName();
-            $file->store('public/avatars');
+            $file->store('public/quotation');
             Quotations::create([
                 'services' => $request->service,
                 'unit' => $request->unit,
@@ -103,7 +103,7 @@ class QuotationsController extends Controller
         if ($request->file('demo')) {
             $file = $request->file('demo');
             $filename = date('YmdHi') . $file->getClientOriginalName();
-            $file->store('public/avatars');
+            $file->store('public/quotation');
             $quotation->update([
                 'services' => $request->service,
                 'unit' => $request->unit,
