@@ -35,13 +35,13 @@
     <div class="row mb-3">
         <div class="col">
             <label for="">Image</label>
-            <input type="file" name="image" id="image" class="form-control mb-3" onchange="readURL(this)" required>
+            <input type="file" name="image" id="image" class="form-control mb-3" onchange="readURL(this)" >
             <img class="img-credentials" src="{{asset('img/credentials')}}/{{$credential->images}}" alt="">
             <img id="img-credentials" src="#"/>
         </div>
         <div class="col">
             <label for="">Demo</label>
-            <input type="file" name="demo" class="form-control" required>
+            <input type="file" name="demo" class="form-control" >
             <input type="text" value="{{$credential->file}}" class="form-control" readonly>
         </div>
     </div>
