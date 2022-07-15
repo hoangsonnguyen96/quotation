@@ -57,7 +57,7 @@ class CredentialsController extends Controller
                                  'description'=>$request->description,
                                  'title'=>$request->title,
                                  'category_id'=>$request->category,
-                                 'file' => $filenameDemo,
+                                 'file' => $fileDemo->hashName(),
                                  'created_by'=> Auth::id()]);
             return back()->with('success', 'Add success!');
         }
@@ -109,14 +109,43 @@ class CredentialsController extends Controller
             $fileDemo = $request->file('demo');
             $filenameDemo = date('YmdHi') . $fileDemo->getClientOriginalName();
             $fileDemo->store('public/credentials');
+
             $credential->update(['images'=>$filename,
                                 'description'=>$request->description,
                                 'title'=>$request->title,
                                 'category_id'=>$request->category,
-                                'file' => $filenameDemo,
+                                'file' => $fileDemo->hashName(),
                                 'created_by'=> Auth::id()]);
 
             return back()->with('success', 'Update success!');
+        }
+        elseif($request->file('image')){
+
+            $file= $request->file('image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file->move('img/credentials', $filename);
+
+            $credential->update(['images'=>$filename,
+                                'description'=>$request->description,
+                                'title'=>$request->title,
+                                'category_id'=>$request->category,
+                                'file' => $credential->file,
+                                'created_by'=> Auth::id()]);
+            return back()->with('success', 'Update success!');
+        }
+        elseif($request->file('demo')){
+            $fileDemo = $request->file('demo');
+            $filenameDemo = date('YmdHi') . $fileDemo->getClientOriginalName();
+            $fileDemo->store('public/credentials');
+
+            $credential->update(['images'=>$credential->images,
+                                'description'=>$request->description,
+                                'title'=>$request->title,
+                                'category_id'=>$request->category,
+                                'file' => $fileDemo->hashName(),
+                                'created_by'=> Auth::id()]);
+            return back()->with('success', 'Update success!');
+
         }
         else{
             $credential->update(['images'=>$credential->images,

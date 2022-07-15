@@ -51,7 +51,7 @@ class ListQuotationController extends Controller
             $file->store('public/quotation');
             ListQuotation::create([
                 'name' => $request->name,
-                'file' => $filename,
+                'file' => $file->hashName(),
                 'description' => $request->desc,
                 'category_id' => $request->category,
                 'created_by' => Auth::id()]);
@@ -95,15 +95,6 @@ class ListQuotationController extends Controller
     public function update(UpdateListQuotationRequest $request, ListQuotation $listQuotation)
     {
 
-
-        if ($request->ajax()) {
-            Quotations::find($request->pk)
-                ->update([
-                    $request->name => $request->value
-                ]);
-
-            return response()->json(['success' => true]);
-        }
         if ($request->file('file')) {
             $quotation = ListQuotation::findOrFail($request->id);
             $category = Categories::where('id', $quotation->category_id)->first();
@@ -113,7 +104,7 @@ class ListQuotationController extends Controller
             $quotation->update([
                 'name' => $request->name,
                 'total' => $request->total,
-                'file' => $filename,
+                'file' => $file->hashName(),
                 'description' => $request->desc,
                 'category_id' => $request->category,
                 'created_by' => Auth::id()

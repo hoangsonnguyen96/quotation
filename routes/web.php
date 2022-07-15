@@ -58,6 +58,13 @@ Route::group(['prefix'=>'list-quotations'], function(){
     Route::post('/destroy', [App\Http\Controllers\ListQuotationController::class, 'destroy'])->name('listQuotations.destroy');
 });
 
-Route::get('/upload', [App\Http\Controllers\HomeController::class, 'index'])->name('upload.index');
+Route::group(['prefix'=>'banner'], function(){
+    Route::get('/index', [App\Http\Controllers\BannerController::class, 'index'])->name('banner.index');
+    Route::post('/store', [App\Http\Controllers\BannerController::class, 'store'])->name('banner.store');
+    Route::post('/update', [App\Http\Controllers\BannerController::class, 'update'])->name('banner.update');
+    Route::post('/destroy', [App\Http\Controllers\BannerController::class, 'destroy'])->name('banner.destroy');
+});
+
+// Route::get('/upload', [App\Http\Controllers\HomeController::class, 'index'])->name('upload.index');
 
 });
