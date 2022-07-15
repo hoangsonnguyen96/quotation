@@ -1,108 +1,13 @@
 @extends('layouts.master')
 @section('content')
-    <!-- ======= Top Bar ======= -->
-    <section id="topbar" class="d-flex align-items-center">
-        <div class="container d-flex justify-content-center justify-content-md-between">
-            <div class="contact-info d-flex align-items-center">
-                <i class="bi bi-envelope d-flex align-items-center"><a
-                        href="mailto:contact@example.com">info@mcv.com.vn</a></i>
-                <i class="bi bi-phone d-flex align-items-center ms-4"><span>+84 28 3910 5142</span></i>
-            </div>
-            <div class="social-links d-none d-md-flex align-items-center">
-                <a href="#" class="youtube"><i class="bi bi-youtube"></i></a>
-                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="tiktok"><i class="bi bi-tiktok"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======= Hero Section ======= -->
-    <section id="hero">
-        <div class="hero-container">
-            <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
-
-                <div class="carousel-inner" role="listbox">
-                    <!-- Slide 1 -->
-                    <div class="carousel-item active"
-                        style="background-image: url({{ asset('img/slide/slide-4.jpeg') }})">
-                        <div class="carousel-container">
-                            <div class="carousel-content">
-                                <h2 class="animate__animated animate__fadeInDown">
-                                    Hiện đại <span>MODERN</span>
-                                </h2>
-                                <p class="animate__animated animate__fadeInUp">
-                                    Sự hiện đại ở MCV là không bao giờ để mình "lỗi thời" mà
-                                    phải luôn tiên phong và đón đầu các xu thế, không ngừng cập
-                                    nhật, thay đổi để thích nghi. Mỗi con người tại MCV đều ý
-                                    thức rằng, bằng lòng với hiện tại là thụt lùi nên luôn phấn
-                                    đấu để hôm nay tốt hơn hôm qua.
-                                </p>
-                                <a href="#" class="btn-get-started animate__animated animate__fadeInUp">Read
-                                    More</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 2 -->
-                    <div class="carousel-item" style="background-image: url({{ asset('img/slide/slide-5.jpeg') }})">
-                        <div class="carousel-container">
-                            <div class="carousel-content">
-                                <h2 class="animate__animated fanimate__adeInDown">
-                                    Sáng tạo <span>CREATIVE</span>
-                                </h2>
-                                <p class="animate__animated animate__fadeInUp">
-                                    Không có bất kỳ giới hạn nào cho sự sáng tạo ở MCV. Bất kỳ ý
-                                    tưởng mới nào ra đời cũng được chào đón và hiện thực hoá,
-                                    sai chỗ nào cùng nhau sửa chỗ ấy.
-                                </p>
-                                <a href="#" class="btn-get-started animate__animated animate__fadeInUp">Read
-                                    More</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 3 -->
-                    <div class="carousel-item" style="background-image: url({{ asset('img/slide/slide-6.webp') }})">
-                        <div class="carousel-container">
-                            <div class="carousel-content">
-                                <h2 class="animate__animated animate__fadeInDown">
-                                    Đạo đức <span>VIRTUOUS</span>
-                                </h2>
-                                <p class="animate__animated animate__fadeInUp">
-                                    Sự tử tế và tận tâm là kim chỉ nam trên con đường tiến đến
-                                    thành công của MCV. Thước đo đạo đức của mỗi Con Người ở MCV
-                                    luôn gắn liền với từng hành động trong công việc và các sản
-                                    phẩm của mình. Hoa trái từ gốc rễ đạo đức chính là thành
-                                    công ngọt ngào mà MCV luôn hướng đến.
-                                </p>
-                                <a href="#" class="btn-get-started animate__animated animate__fadeInUp">Read
-                                    More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-                </a>
-
-                <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
-                    <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-                </a>
-            </div>
-        </div>
-    </section>
-    <!-- End Hero -->
-
     <main id="main">
         <!-- ======= Services Section ======= -->
         <!-- End Services Section -->
 
         <section id="datables" class="datables" style="margin-top:150px">
             <div class="container">
-                <div class="col-12 d-flex" style="z-index: 200 !important">
-                    <div class="col-2 me-2 menu-data">
+                <div class="col-12 d-flex f-column" style="z-index: 200 !important">
+                    <div class="col-3 me-2 menu-data">
                         <div class="d-flex flex-column menu-s">
                             <div class="sidebar-left">
                                 <ul class="sidebar-menu" style="padding: 0">
@@ -129,12 +34,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-10">
+                    <div class="col-9">
                         <div id="services" class="services">
                             <div id="about" class="about">
                                 {!! $quotation->description !!}
                             </div>
-                            <div style="float:right" class="btn more mt-3"><a href="" target="_blank">Xem chi tiết</a></div>
+                            <div style="float:right" class="btn more mt-3"><a href="{{asset('storage/quotation')}}/{{$quotation->file}}" target="_blank">Xem chi tiết</a></div>
                         </div>
                     </div>
                 </div>

@@ -38,6 +38,67 @@
 </head>
 
 <body>
+
+    <!-- ======= Top Bar ======= -->
+    <section id="topbar" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-center justify-content-md-between">
+            <div class="contact-info d-flex align-items-center">
+                <img class="logo" src="{{asset('img/logo.png')}}" alt="">
+                <i class="bi bi-envelope d-flex align-items-center"><a
+                        href="mailto:contact@example.com">info@mcv.com.vn</a></i>
+                <i class="bi bi-phone d-flex align-items-center ms-4"><span>+84 28 3910 5142</span></i>
+            </div>
+            <div class="social-links d-none d-md-flex align-items-center">
+                <a href="#" class="youtube"><i class="bi bi-youtube"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="tiktok"><i class="bi bi-tiktok"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero">
+        <div class="hero-container">
+            <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <ol style="z-index:1" class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+                <div class="carousel-inner" role="listbox">
+
+
+                    <!-- Slide 2 -->
+                    @foreach ($banners as $key=>$banner)
+
+                    <div class="carousel-item {{$key == 0 ? 'active' : ''}}" style="background-image: url({{asset('img/banner')}}/{{$banner->images}})">
+                        <a href="{{$banner->link}}">
+                        {{-- <img style="width:100%; height: 100%" src="{{asset('img/banner')}}/{{$banner->images}}" alt=""> --}}
+                        <div class="carousel-container">
+                            <div class="carousel-content">
+                                {{-- <h2 class="animate__animated fanimate__adeInDown">
+                                    Sáng tạo <span>CREATIVE</span>
+                                </h2>
+                                <p class="animate__animated animate__fadeInUp">
+                                    Không có bất kỳ giới hạn nào cho sự sáng tạo ở MCV. Bất kỳ ý
+                                    tưởng mới nào ra đời cũng được chào đón và hiện thực hoá,
+                                    sai chỗ nào cùng nhau sửa chỗ ấy.
+                                </p> --}}
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+                    @endforeach
+                </div>
+
+                <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+                </a>
+
+                <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- End Hero -->
     @yield('content')
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
