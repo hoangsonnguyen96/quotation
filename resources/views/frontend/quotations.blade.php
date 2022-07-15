@@ -36,6 +36,7 @@
                     </div>
                     <div class="col-9">
                         <div id="services" class="services">
+                            <h2>{{$quotation->name}}</h2>
                             <div id="about" class="about">
                                 {!! $quotation->description !!}
                             </div>
