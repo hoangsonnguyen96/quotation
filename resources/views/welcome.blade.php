@@ -38,17 +38,24 @@
                     <div class="col-9">
                         <div id="services" class="services">
                             <div id="about" class="about">
-                                <div class="container">
+                                <div class="">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <img src="{{ asset('img/credentials') }}/{{$credential?->images}}" class="img-credentials"
                                                 alt="" />
                                         </div>
                                         <div class="col-lg-6 pt-4 pt-lg-0 content">
-                                            <h3>{{$credential?->title}}</h3>
-                                            <p class="fst-italic">
+                                            <h3 class="m-0">{{$categories->where('id', '=', $credential->category_id)->first()->name}} > {{$credential?->title}}</h3>
+                                            <div style="font-weight: 100;" class="mb-5 mt-5">
                                                 {{$credential?->description}}
-                                            </p><div class="btn more"><a href="{{asset('storage/credentials')}}/{{$credential->file}}" target="_blank">Xem chi tiết</a></div>
+                                            </div>
+                                            <div>
+                                                <form
+                                                    action="{{ asset('storage/credentials') }}/{{ $credential->file }}"
+                                                    target="_blank">
+                                                    <button class="more" type="submit">Xem chi tiết</button>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

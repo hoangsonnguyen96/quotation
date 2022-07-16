@@ -18,7 +18,7 @@ class HomepageController extends Controller
         $categories = Categories::with(['credential','listQuotations'])->get();
         return view('welcome', ['categories' => $categories, 'credential' => $credential, 'banners'=>$banners,'banner' =>$banner]);
     }
-
+    
     public function category(Request $request)
     {
         $banners = Banner::all();

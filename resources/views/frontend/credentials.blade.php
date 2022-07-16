@@ -17,14 +17,16 @@
                                             @foreach ($category->credential as $item)
                                                 <ul class="menu-sub">
                                                     <li>
-                                                        <a href="{{route('frontend.credentials.index',['id' => $item->id])}}">{{ $item->title }}</a>
+                                                        <a
+                                                            href="{{ route('frontend.credentials.index', ['id' => $item->id]) }}">{{ $item->title }}</a>
                                                     </li>
                                                 </ul>
                                             @endforeach
                                             @foreach ($category->listQuotations as $item)
                                                 <ul class="menu-sub">
                                                     <li>
-                                                        <a href="{{route('frontend.quotations.index',['id' => $item->id])}}">{{ $item->name }}</a>
+                                                        <a
+                                                            href="{{ route('frontend.quotations.index', ['id' => $item->id]) }}">{{ $item->name }}</a>
                                                     </li>
                                                 </ul>
                                             @endforeach
@@ -37,19 +39,24 @@
                     <div class="col-10">
                         <div id="services" class="services">
                             <div id="about" class="about">
-                                <div class="container">
-                                    <div class="row">
+                                <div class="">
                                         <div class="col-lg-6">
-                                            <img src="{{ asset('img/credentials') }}/{{$credential->images}}" class="img-credentials"
-                                                alt="" />
+                                            <img src="{{ asset('img/credentials') }}/{{ $credential->images }}"
+                                                class="img-credentials" alt="" />
                                         </div>
-                                        <div class="col-lg-6 pt-4 pt-lg-0 content">
-                                            <h3>{{$credential->title}}</h3>
-                                            <p class="fst-italic">
-                                                {{$credential->description}}
-                                            </p><div class="btn more"><a href="{{asset('storage/credentials')}}/{{$credential->file}}" target="_blank">Xem chi tiết</a></div>
+                                        <div class="col-lg-4 pt-4 pt-lg-0">
+                                            <label class="m-0">{{$categories->where('id', '=', $credential->category_id)->first()->name}} > {{ $credential->title }}</lab>
+                                                <div style="font-weight: 100" class="mb-5 mt-5">
+                                                    {!! $credential->description !!}
+                                                </div>
+                                            <div>
+                                                <form
+                                                    action="{{ asset('storage/credentials') }}/{{ $credential->file }}"
+                                                    target="_blank">
+                                                    <button class="more" type="submit">Xem chi tiết</button>
+                                                </form>
+                                            </div>
                                         </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>

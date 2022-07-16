@@ -17,14 +17,16 @@
                                             @foreach ($category->credential as $item)
                                                 <ul class="menu-sub">
                                                     <li>
-                                                        <a href="{{route('frontend.credentials.index',['id' => $item->id])}}">{{ $item->title }}</a>
+                                                        <a
+                                                            href="{{ route('frontend.credentials.index', ['id' => $item->id]) }}">{{ $item->title }}</a>
                                                     </li>
                                                 </ul>
                                             @endforeach
                                             @foreach ($category->listQuotations as $item)
                                                 <ul class="menu-sub">
                                                     <li>
-                                                        <a href="{{route('frontend.quotations.index',['id' => $item->id])}}">{{ $item->name }}</a>
+                                                        <a
+                                                            href="{{ route('frontend.quotations.index', ['id' => $item->id]) }}">{{ $item->name }}</a>
                                                     </li>
                                                 </ul>
                                             @endforeach
@@ -34,13 +36,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-9">
+                    <div class="col-9 limiters">
                         <div id="services" class="services">
-                            <h2>{{$quotation->name}}</h2>
+                            <h2 class="m-0">{{$categories->where('id', '=', $quotation->category_id)->first()->name}} > {{ $quotation->name }}</h2>
                             <div id="about" class="about">
+                                <div style="overflow-x:auto;"  class="mb-5 mt-5">
                                 {!! $quotation->description !!}
+                                </div>
                             </div>
-                            <div style="float:right" class="btn more mt-3"><a href="{{asset('storage/quotation')}}/{{$quotation->file}}" target="_blank">Xem chi tiết</a></div>
+                            <div style="float:right" class="mt-3">
+                                <form action="{{ asset('storage/quotation') }}/{{ $quotation->file }}" target="_blank">
+                                    <button class="more" type="submit">Xem chi tiết</button></form>
+                            </div>
                         </div>
                     </div>
                 </div>
