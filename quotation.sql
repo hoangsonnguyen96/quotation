@@ -11,11 +11,31 @@
  Target Server Version : 50736
  File Encoding         : 65001
 
- Date: 15/07/2022 00:54:42
+ Date: 17/07/2022 01:17:20
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for banners
+-- ----------------------------
+DROP TABLE IF EXISTS `banners`;
+CREATE TABLE `banners`  (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `images` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `link` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of banners
+-- ----------------------------
+INSERT INTO `banners` VALUES (3, '202207160754IMG_9172.jpg', 1, 'https://mcv.com.vn/', '2022-07-16 07:54:05', '2022-07-16 07:54:05');
+INSERT INTO `banners` VALUES (2, '202207160725ruzlU3EgmsvRWyl7E03FV.jpeg', 1, 'https://netlove.com.vn/', '2022-07-16 06:43:51', '2022-07-16 07:25:14');
 
 -- ----------------------------
 -- Table structure for categories
@@ -76,7 +96,7 @@ INSERT INTO `credentials` VALUES (36, '202207141723hinh-nen-galaxy-may-tinh-11.j
 INSERT INTO `credentials` VALUES (37, '202207141723hinh-nen-galaxy-may-tinh-12.jpg', 'Đây là Credential của Tin Tức - Báo Đài', 1, '2022-07-14 17:23:31', '2022-07-14 17:23:31', 6, 'Credentials', '202207141723document.pdf');
 INSERT INTO `credentials` VALUES (29, '202207141718hinh-nen-galaxy-may-tinh-4.jpg', '<p>Đ&acirc;y l&agrave; Credential của MCV Ads</p>', 1, '2022-07-14 17:16:47', '2022-07-14 17:18:44', 5, 'Credential', '202207141718document.pdf');
 INSERT INTO `credentials` VALUES (28, '202207141716hinh-nen-galaxy-may-tinh-3.jpg', 'Đây là Credential của Sản xuất và sáng tạo content', 1, '2022-07-14 17:16:14', '2022-07-14 17:16:14', 3, 'Credential', '202207141716document.pdf');
-INSERT INTO `credentials` VALUES (27, '202207141713hinh-nen-galaxy-may-tinh-2.jpg', 'Đây là Credential của Bản quyền', 1, '2022-07-14 17:13:48', '2022-07-14 17:13:48', 2, 'Credential', '202207141713s.pdf');
+INSERT INTO `credentials` VALUES (27, '202207141713hinh-nen-galaxy-may-tinh-2.jpg', '<p>Đ&acirc;y l&agrave; Credential của Bản quyền</p>', 1, '2022-07-14 17:13:48', '2022-07-16 16:51:57', 2, 'Credential', '202207141713s.pdf');
 INSERT INTO `credentials` VALUES (26, '202207141712hinh-nen-galaxy-may-tinh.jpg', 'Đây là Credential của PR Solution', 1, '2022-07-14 17:12:14', '2022-07-14 17:12:14', 1, 'Credential', '202207141712document.pdf');
 
 -- ----------------------------
@@ -122,7 +142,7 @@ CREATE TABLE `list_quotations`  (
 INSERT INTO `list_quotations` VALUES (19, 'MCV List kênh', NULL, 5, 1, '202207141745test.xlsx', '2022-07-14 17:37:58', '2022-07-14 17:45:06', '<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:1080px\">\r\n	<thead>\r\n		<tr>\r\n			<th scope=\"col\">1</th>\r\n			<th scope=\"col\">2</th>\r\n			<th scope=\"col\">3</th>\r\n			<th scope=\"col\">4</th>\r\n			<th scope=\"col\">5</th>\r\n		</tr>\r\n	</thead>\r\n	<tbody>\r\n		<tr>\r\n			<td>6</td>\r\n			<td>7</td>\r\n			<td>8</td>\r\n			<td>9</td>\r\n			<td>10</td>\r\n		</tr>\r\n		<tr>\r\n			<td>11</td>\r\n			<td>12</td>\r\n			<td>13</td>\r\n			<td>14</td>\r\n			<td>15</td>\r\n		</tr>\r\n	</tbody>\r\n</table>');
 INSERT INTO `list_quotations` VALUES (18, 'List KOLs', NULL, 2, 1, '202207141745test.xlsx', '2022-07-14 17:37:22', '2022-07-14 17:37:22', '<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:1080px\">\r\n	<thead>\r\n		<tr>\r\n			<th scope=\"col\">1</th>\r\n			<th scope=\"col\">2</th>\r\n			<th scope=\"col\">3</th>\r\n			<th scope=\"col\">4</th>\r\n			<th scope=\"col\">5</th>\r\n		</tr>\r\n	</thead>\r\n	<tbody>\r\n		<tr>\r\n			<td>6</td>\r\n			<td>7</td>\r\n			<td>8</td>\r\n			<td>9</td>\r\n			<td>10</td>\r\n		</tr>\r\n		<tr>\r\n			<td>11</td>\r\n			<td>12</td>\r\n			<td>13</td>\r\n			<td>14</td>\r\n			<td>15</td>\r\n		</tr>\r\n	</tbody>\r\n</table>');
 INSERT INTO `list_quotations` VALUES (17, 'Chi tiết báo giá', NULL, 1, 1, '202207141745test.xlsx', '2022-07-14 17:31:15', '2022-07-14 17:36:05', '<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:1080px\">\r\n	<thead>\r\n		<tr>\r\n			<th scope=\"col\">1</th>\r\n			<th scope=\"col\">2</th>\r\n			<th scope=\"col\">3</th>\r\n			<th scope=\"col\">4</th>\r\n			<th scope=\"col\">5</th>\r\n		</tr>\r\n	</thead>\r\n	<tbody>\r\n		<tr>\r\n			<td>6</td>\r\n			<td>7</td>\r\n			<td>8</td>\r\n			<td>9</td>\r\n			<td>10</td>\r\n		</tr>\r\n		<tr>\r\n			<td>11</td>\r\n			<td>12</td>\r\n			<td>13</td>\r\n			<td>14</td>\r\n			<td>15</td>\r\n		</tr>\r\n	</tbody>\r\n</table>');
-INSERT INTO `list_quotations` VALUES (20, 'Chi tiết báo giá', NULL, 6, 1, '202207141745test.xlsx', '2022-07-14 17:38:28', '2022-07-14 17:39:52', '<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:1080px\">\r\n	<thead>\r\n		<tr>\r\n			<th scope=\"col\">1</th>\r\n			<th scope=\"col\">2</th>\r\n			<th scope=\"col\">3</th>\r\n			<th scope=\"col\">4</th>\r\n			<th scope=\"col\">5</th>\r\n		</tr>\r\n	</thead>\r\n	<tbody>\r\n		<tr>\r\n			<td>6</td>\r\n			<td>7</td>\r\n			<td>8</td>\r\n			<td>9</td>\r\n			<td>10</td>\r\n		</tr>\r\n		<tr>\r\n			<td>11</td>\r\n			<td>12</td>\r\n			<td>13</td>\r\n			<td>14</td>\r\n			<td>15</td>\r\n		</tr>\r\n	</tbody>\r\n</table>');
+INSERT INTO `list_quotations` VALUES (20, 'Chi tiết báo giá', NULL, 6, 1, '4enZerHfBpE9iXyAlJ74ImDCJzWXTMBlgIf8mc0o.pdf', '2022-07-14 17:38:28', '2022-07-16 16:06:36', '<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\">\r\n	<thead>\r\n		<tr>\r\n			<th scope=\"col\">1aaaaaaaaaaaaaaaaaaaasadfasdfsadfsadfsadfsadfaaa</th>\r\n			<th scope=\"col\">2sadfasdfasdsadfsadfsadfsdffasdf</th>\r\n			<th scope=\"col\">sadasdfsasadfsadfsadfsadfasdfsadfasdfsadf3</th>\r\n			<th scope=\"col\">4sadfsadfssdafsadfsadfsadaddfsadfsda</th>\r\n			<th scope=\"col\">5asdfasdfasadfsadfsadfsadfsadfasdfasdfsdfsadfsdfasd</th>\r\n		</tr>\r\n	</thead>\r\n	<tbody>\r\n		<tr>\r\n			<td>6</td>\r\n			<td>7</td>\r\n			<td>8</td>\r\n			<td>9</td>\r\n			<td>10</td>\r\n		</tr>\r\n		<tr>\r\n			<td>11</td>\r\n			<td>12</td>\r\n			<td>13</td>\r\n			<td>14</td>\r\n			<td>15</td>\r\n		</tr>\r\n	</tbody>\r\n</table>');
 
 -- ----------------------------
 -- Table structure for migrations
@@ -133,7 +153,7 @@ CREATE TABLE `migrations`  (
   `migration` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of migrations
@@ -147,6 +167,7 @@ INSERT INTO `migrations` VALUES (6, '2022_07_12_154702_create_credentials_table'
 INSERT INTO `migrations` VALUES (7, '2022_07_13_020235_create_categry_id_field', 4);
 INSERT INTO `migrations` VALUES (8, '2022_07_13_020523_create_categry_id_field', 5);
 INSERT INTO `migrations` VALUES (10, '2022_07_13_040233_create_quotations_table', 6);
+INSERT INTO `migrations` VALUES (11, '2022_07_15_042215_create_banners_table', 7);
 
 -- ----------------------------
 -- Table structure for password_resets
